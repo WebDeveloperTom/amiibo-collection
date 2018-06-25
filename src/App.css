@@ -1,0 +1,13 @@
+.amiibo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.amiibo-item {
+  text-decoration: none;
+  list-style: none;
+}
+
+.amiibo-item > img {
+  height: 100px;
+}
