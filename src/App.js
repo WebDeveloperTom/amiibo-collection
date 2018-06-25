@@ -7,14 +7,19 @@ class App extends Component {
   state = {
     picture: [],
     isLoaded: false,
-    amiibos: {}
+    amiibos: []
   };
   getAmiibos = () => {
     fetch(
       "http://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Smash%20Bros."
     )
       .then(results => results.json())
-      .then(data => console.log(data.amiibo));
+      .then(data => {
+        this.setState({
+          amiibos: data.amiibo,
+          isLoaded: true
+        });
+      });
   };
 
   loadSampleAmiibos = () => {
@@ -27,6 +32,7 @@ class App extends Component {
       <div className="App">
         <p>Amiibo Viewer</p>
         <AmiiboDisplay
+          loaded={this.state.isLoaded}
           getAmiibos={this.getAmiibos}
           loadSampleAmiibos={this.loadSampleAmiibos}
           amiibos={this.state.amiibos}
