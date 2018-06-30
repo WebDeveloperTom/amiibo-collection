@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AmiiboDisplay from "./components/AmiiboDisplay";
+import Nav from "./components/Nav";
 import amiibos from "./amiibolist";
 import "./App.css";
 
@@ -30,6 +31,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        />
         <p>Amiibo Viewer</p>
         <AmiiboDisplay
           loaded={this.state.isLoaded}
