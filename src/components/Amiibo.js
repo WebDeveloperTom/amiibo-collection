@@ -8,6 +8,7 @@ class Amiibo extends Component {
         <img src={image} alt={name} />
         <h3>{name}</h3>
         <h4>{gameSeries}</h4>
+        <button>Add to My Collection</button>
       </li>
     );
   }
