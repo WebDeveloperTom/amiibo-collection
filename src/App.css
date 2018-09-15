@@ -1,19 +1,26 @@
-body,
-ul {
+body, ul {
   margin: 0;
   padding: 0;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .amiibo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .amiibo-item {
   text-decoration: none;
   list-style: none;
+  text-align: center;
+  padding: 10px;
+  /* align-items: center; */
 }
 
-.amiibo-item > img {
+.amiibo-item>img {
   height: 100px;
 }

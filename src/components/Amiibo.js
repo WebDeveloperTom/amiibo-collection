@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Amiibo extends Component {
+  handleClick = () => {
+    this.props.addToCollection(this.props.index);
+    // this.props.addToCollection(this.props.amiibo);
+  };
   render() {
     const { name, image, gameSeries } = this.props.amiibo;
     return (
@@ -8,7 +12,7 @@ class Amiibo extends Component {
         <img src={image} alt={name} />
         <h3>{name}</h3>
         <h4>{gameSeries}</h4>
-        <button>Add to My Collection</button>
+        <button onClick={this.handleClick}>Add to My Collection</button>
       </li>
     );
   }

@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import AmiiboDisplay from "./components/AmiiboDisplay";
 import Nav from "./components/Nav";
-import amiibos from "./amiibolist";
+import amiibos from "./amiiboData";
+import smallAmiibos from "./smallAmiibos";
 import Collection from "./components/Collection";
 import "./App.css";
 
 class App extends Component {
   state = {
-    picture: [],
     isLoaded: false,
     amiibos: [],
-    collection: []
+    collection: {
+      amiibo: []
+    }
   };
   getAmiibos = () => {
     fetch(
@@ -25,9 +27,19 @@ class App extends Component {
       });
   };
 
+  addToCollection = index => {
+    const item = this.state.amiibos.amiibo[index];
+    let collection = this.state.collection;
+    collection.amiibo[index] = item;
+    console.log(index);
+    console.log(item);
+    this.setState({ collection });
+  };
+
   loadSampleAmiibos = () => {
     this.setState({
-      amiibos: amiibos
+      amiibos: amiibos,
+      isLoaded: true
     });
   };
   render() {
@@ -35,14 +47,14 @@ class App extends Component {
       <div className="App">
         <Nav />
         <div className="main">
-          <p>Amiibo Viewer</p>
           <AmiiboDisplay
             loaded={this.state.isLoaded}
             getAmiibos={this.getAmiibos}
             loadSampleAmiibos={this.loadSampleAmiibos}
             amiibos={this.state.amiibos}
+            addToCollection={this.addToCollection}
           />
-          <Collection />
+          <Collection collection={this.state.collection} />
         </div>
       </div>
     );
