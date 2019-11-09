@@ -16,12 +16,12 @@ class App extends Component {
   };
   getAmiibos = () => {
     fetch(
-      "http://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Smash%20Bros."
+      "https://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Smash%20Bros."
     )
       .then(results => results.json())
       .then(data => {
         this.setState({
-          amiibos: data.amiibo,
+          amiibos: data,
           isLoaded: true
         });
       });

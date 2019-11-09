@@ -11,7 +11,7 @@ class AmiiboDisplay extends Component {
     } = this.props;
 
     if (!loaded) {
-      return <button onClick={loadSampleAmiibos}>Load SMASH Amiibos</button>;
+      return <button onClick={getAmiibos}>Load SMASH Amiibos</button>;
     }
 
     return (
