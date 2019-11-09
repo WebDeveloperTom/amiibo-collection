@@ -21,9 +21,9 @@ class AmiiboDisplay extends Component {
           {amiibos.amiibo.map((amiibo, index) => (
             <Amiibo
               key={amiibo.tail}
-              newKey={amiibo.tail}
+              // newKey={amiibo.tail}
               index={index}
-              amiibos={amiibos}
+              // amiibos={amiibos}
               amiibo={amiibo}
               addToCollection={addToCollection}
             />

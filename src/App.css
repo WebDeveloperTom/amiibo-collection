@@ -1,4 +1,5 @@
-body, ul {
+body,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -21,6 +22,6 @@ body, ul {
   /* align-items: center; */
 }
 
-.amiibo-item>img {
+.amiibo-item > img {
   height: 100px;
 }
