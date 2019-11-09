@@ -29,11 +29,29 @@ class App extends Component {
 
   addToCollection = index => {
     const item = this.state.amiibos.amiibo[index];
-    let collection = this.state.collection;
-    collection.amiibo[index] = item;
-    console.log(index);
-    console.log(item);
-    this.setState({ collection });
+    const remove = this.state.amiibos.amiibo[index].tail;
+
+    // const newData = [...this.state.amiibos.amiibo];
+    // console.log(newData);
+    // newData.splice(index, 1);
+    // let collection = this.state.collection;
+    console.log(remove);
+    let statecopy = this.state.amiibos.amiibo.filter(
+      amiibo => amiibo.tail !== remove
+    );
+    console.log(statecopy);
+    this.setState(previousState => ({
+      amiibos: {
+        amiibo: [...statecopy]
+      },
+      collection: {
+        amiibo: [...previousState.collection.amiibo, item]
+      }
+    }));
+    // collection.amiibo[index] = item;
+    // console.log(index);
+    // console.log(item);
+    // this.setState({ collection });
   };
 
   loadSampleAmiibos = () => {
